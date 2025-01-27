@@ -4,6 +4,7 @@ import axios from 'axios';
 const SignupForm = () => {
   const [formData, setFormData] = useState({ name: '', email: '' });
   const [errors, setErrors] = useState({});
+   const [isLoading, setIsLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -45,6 +46,8 @@ const SignupForm = () => {
     } catch (error) {
       setErrorMessage(error.response?.data?.message || 'Something went wrong.');
       setSuccessMessage('');
+    }finally {
+      setIsLoading(false); 
     }
   };
 
@@ -93,8 +96,8 @@ const SignupForm = () => {
             {errors.email && <p className="error-text">{errors.email}</p>}
           </div>
 
-          <button type="submit" className="form-button">
-            Sign Up
+          <button type="submit" className="form-button" disabled={isLoading}>
+        {isLoading ? 'signing...' : 'sign'}
           </button>
         </form>
       </div>
