@@ -8,10 +8,12 @@ require("dotenv").config();
 
 connectDB();
 const corsOptions = {
-  origin: "https://mern-mtsl.onrender.com",
-};
-
-app.use(cors(corsOptions));
+    origin: "https://mern-mtsl.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"], 
+    allowedHeaders: ["Content-Type", "Authorization"]
+  };
+  
+  app.use(cors(corsOptions));
 app.use(express.json());
 const port = process.env.PORT || 4000;
 app.use("/", routes);
