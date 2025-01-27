@@ -4,6 +4,8 @@ const connectDB = require("./config/db");
 const User = require("./models/userModel");
 const cors = require("cors");
 const routes = require("./routes");
+
+app.set('trust proxy', true);
 require("dotenv").config();
 
 connectDB();
