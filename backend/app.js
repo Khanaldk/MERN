@@ -8,7 +8,7 @@ require("dotenv").config();
 
 connectDB();
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://mern-mtsl.onrender.com",
 };
 
 app.use(cors(corsOptions));
