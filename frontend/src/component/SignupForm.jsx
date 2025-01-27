@@ -38,7 +38,7 @@ const SignupForm = () => {
     }
 
     try {
-      const response = await axios.post('https://mern-backend-x8s2.onrender.com/user/create', formData);
+      const response = await axios.post("https://mern-backend-x8s2.onrender.com/user/create", formData);
       setSuccessMessage(response?.data?.message);
       setErrorMessage('');
       setFormData({ name: '', email: '' });
